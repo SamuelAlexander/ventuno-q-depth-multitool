@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Depth Multitool
+Comment=Live depth from one webcam, on the VENTUNO Q's NPU
+Exec=@ROOT@/device/launch.sh
+Icon=@ROOT@/device/icon.png
+Terminal=false
+StartupNotify=false
+Categories=Science;ImageProcessing;
+Keywords=depth;camera;AI;NPU;Arduino;

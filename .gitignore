@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Created by install.sh on the board.
+venv/
+
+# Model weights: 97 MB, and reproducible with research/export_model.py.
+models/
+
+# Local working files, never published.
+STATUS.md
+SOCIAL-VIDEO.md
+.venv/
+.venv-yolo/
+PHOTOS.md
