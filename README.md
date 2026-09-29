@@ -7,7 +7,6 @@ One ordinary webcam, a depth model on the VENTUNO Q's NPU, and four ways to see 
 **Board:** Arduino VENTUNO Q
 **Model:** Depth Anything V2 Small (Apache-2.0), running on the NPU
 **Measured on the board:** 16 ms per frame on the NPU, 20 FPS on screen in every tool, 11.8 W for the board itself
-<!-- SAM: add your meter's whole-setup figure (expected about 17 W) -->
 **Difficulty:** Beginner, about 30 minutes
 
 ## Introduction
@@ -20,9 +19,7 @@ Neural networks have now learned the one-eyed trick. Monocular depth models look
 
 This project puts one on the Arduino VENTUNO Q, feeds it a plain USB webcam, and turns what it sees into four tools you can play with at 20 frames per second.
 
-<!-- SAM PHOTO 1 (hero): drop the file in assets/ and uncomment the line below. Staging in PHOTOS.md.
-![Holding the Depth Multitool: over the shoulder, the 10 inch screen shows the room in front of it sliced by distance](assets/photo-hero.jpg)
--->
+![Holding the Depth Multitool in both hands: a yellow-framed 10 inch screen with the webcam on top, pointed at an office, the screen showing the same room coloured by distance](assets/photo-hero.jpg)
 
 ## What it does
 
@@ -32,21 +29,23 @@ There is no depth sensor here. A USB webcam takes an ordinary picture, and Depth
 
 **Heatmap** (key 1) shows distance as colour. Near is bright, far is dark, with the camera image blended underneath.
 
+![The webcam turned toward the person holding the device, the screen showing him in red and orange against a blue background](assets/front-heatmap.jpg)
+
 ![Slicer with the plane set further back: the man's head and outstretched arm lit in yellow-green, everything nearer and further dimmed to gray, a near-to-far gauge on the right edge](assets/slicer.jpg)
 
 **Slicer** (key 2) lights up only what sits at one distance, like a slice through an MRI scan. The arrow keys sweep the slice through the room and change its thickness.
+
+![The slice plane sweeping through a room on the device's screen](assets/slicer-sweep.gif)
 
 ![Flood: blue virtual water filling the room from the back wall forward, the man at his desk standing dry in full colour](assets/flood.jpg)
 
 **Flood** (key 3) fills the room with virtual water from the back wall forward. Whatever is close stays dry.
 
+![Holding the device toward a desk: on screen the room is under blue water, the desk and computer in front stay dry](assets/flood-handheld.jpg)
+
 ![Sonar: the view split into left and right halves, the man filling the left side, reading 23 percent on the left and 4 percent on the right](assets/sonar.jpg)
 
 **Sonar** (key 4) measures how crowded each side of the view is, and you can hear it through the display's speaker: low clicks for the left, high clicks for the right, faster as things get closer. Walk toward a wall and the clicks speed up; turn toward an open doorway and they stop.
-
-<!-- SAM PHOTO 4 (sonar): drop the file in assets/ and uncomment the line below. Staging in PHOTOS.md.
-![Holding the webcam like a torch toward a wall on the left, the screen showing the left side crowded](assets/photo-sonar.jpg)
--->
 
 ## Why the VENTUNO Q
 
@@ -62,23 +61,20 @@ It is also a regular Ubuntu computer with a desktop, so the app is a Python prog
 | 10.1 inch HDMI display, 1280×800, 12 V, with a built-in speaker | 1 |
 | USB webcam (a Logitech MX Brio here; any UVC webcam that does 1280×720 MJPG) | 1 |
 | USB keyboard | 1 |
+| USB mouse, to double-click the icon | 1 |
 | Optional, to run untethered: UGREEN Nexode PB724 power bank (12,000 mAh, 100 W), a USB-C PD trigger set to 12 V, and a 5.5×2.1 mm barrel Y-splitter to feed the board and the display from it | 1 each |
 
-<!-- SAM: confirm the power wiring above matches what you actually used, and add the display's model name -->
+![The back of the handheld: the VENTUNO Q with its black heatsink mounted behind the display in a yellow and black case, the webcam clipped to the top](assets/ventunoq.jpg)
 
-<!-- SAM PHOTO 2 (parts): drop the file in assets/ and uncomment the line below. Staging in PHOTOS.md.
-![Everything used, laid out on a desk: the VENTUNO Q, the 10 inch display, the webcam, a keyboard, the power bank and its cables](assets/photo-parts.jpg)
--->
+The handheld in these photos is a case built around the display, with the board mounted behind it. It is optional: the project runs just the same with the parts on a desk.
 
 **Software:** the Ubuntu 24.04 image the VENTUNO Q ships with, Qualcomm AI Runtime, LiteRT and OpenCV. Qualcomm AI Hub is only needed if you want to rebuild the model yourself.
 
 ## Build it
 
-1. Set up the VENTUNO Q and connect the display, webcam and keyboard. <!-- SAM: link Arduino's official VENTUNO Q getting-started page -->
+1. Set up the VENTUNO Q as a desktop computer by following Arduino's [VENTUNO Q SBC Mode Setup](https://docs.arduino.cc/tutorials/ventuno-q/sbc-mode-setup/), then plug in the webcam.
 
-   <!-- SAM PHOTO 3 (setup): drop the file in assets/ and uncomment the line below. Staging in PHOTOS.md.
-   ![The VENTUNO Q with the display, webcam and keyboard plugged in, the power bank feeding the board and the display](assets/photo-setup.jpg)
-   -->
+   ![Everything connected behind the display: the board's HDMI, USB and power cables, the webcam's cable looped over the top](assets/ventuno-build.jpg)
 
 2. Open a terminal on the board and run:
 
@@ -137,6 +133,4 @@ This project uses only the VENTUNO Q's Linux side. Its STM32 microcontroller is 
 
 ## License
 
-Apache-2.0. Depth Anything V2 Small is Apache-2.0.
-
-<!-- SAM: confirm the licence before publishing -->
+Apache-2.0, see [LICENSE](LICENSE). Depth Anything V2 Small is Apache-2.0 too.

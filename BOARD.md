@@ -12,7 +12,7 @@ VENTUNO Q between August and September 2026.
 | CPU | 8× Cortex-A55 |
 | Desktop | GNOME on Wayland, the `arduino` user logged in automatically |
 | NPU | Qualcomm Hexagon, reached through the QNN TFLite delegate |
-| Power in | USB-C at 5 V (15 W max), or a 12–24 V barrel jack |
+| Power in | 7–24 V on the barrel jack or screw terminals, or USB-C Power Delivery at 9–20 V |
 
 `ping` to the board fails because ICMP is filtered; that says nothing about
 whether it is up. `nc -z <board-ip> 22` does.
@@ -195,7 +195,7 @@ dropping the rest: at 15 FPS that saved another 0.45 W.
 
 The whole setup, board plus 10 inch display plus webcam, ran from a UGREEN
 Nexode PB724 (100 W, 12 V at 3 A) with no reset and no throttling in every
-configuration above. <!-- SAM: add your meter's whole-setup figure at the shipped settings (expected about 17 W) -->
+configuration above.
 
 ## The microcontroller
 
